@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+	FILE *filePointer;
+	char buffer[20];
+	printf("Nhap vao chuoi ky tu: \n");
+	gets(buffer);
+	
+	filePointer = fopen("C:\\Users\\Admin\\Desktop\\bt01.txt", "w+");
+	
+	fwrite(buffer, sizeof(char), sizeof(buffer), filePointer);
+	
+	fclose(filePointer);
+	return 0;
+}
