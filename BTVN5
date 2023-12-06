@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main(){
+	FILE *fileptr1, *fileptr2, *fileptr3;
+	char a, b;
+	fileptr1 = fopen("C:\\Users\\Admin\\Desktop\\bt01.txt", "r");
+	fileptr2 = fopen("C:\\Users\\Admin\\Desktop\\bt03.txt", "r");
+	fileptr3 = fopen("C:\\Users\\Admin\\Desktop\\bt05.txt", "w");
+	while(a != EOF)
+	{
+		a = fgetc(fileptr1);
+		if(a != EOF)
+		{
+			fputc(a, fileptr3);
+		}
+	}
+	while(b != EOF)
+	{
+		b = fgetc(fileptr2);
+		if(b != EOF)
+		{
+			fputc(b, fileptr3);
+		}
+	}
+
+  return 0;
+}
