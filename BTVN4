@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+	int rowCurr = 0;
+	char rowCount;
+    FILE *fileptr;
+	
+	fileptr = fopen("C:\\Users\\Admin\\Desktop\\bt03.txt", "r");
+	if(fileptr != NULL)
+	{
+		while((rowCount = fgetc(fileptr))!= EOF)
+		{
+			if(rowCount == '\n')
+			{
+				rowCurr++;
+			}
+		}
+	}
+	fclose(fileptr);
+	
+	printf("So dong cua file la %d", rowCurr);
+	return 0;
+}
