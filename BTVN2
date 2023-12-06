@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main(){
+	FILE *filePointer = NULL;
+	int charCurr = 0;
+	filePointer = fopen("C:\\Users\\Admin\\Desktop\\bt01.txt", "r");
+	if(filePointer != NULL)
+	{
+		do
+		{
+			charCurr = fgetc(filePointer);
+			printf("%c", charCurr);
+		}
+		while(charCurr !=  EOF);
+	}fclose(filePointer);
+
+	return 0;
+}
