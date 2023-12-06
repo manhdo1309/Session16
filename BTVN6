@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    char name[50];
+    int age;
+    char phone[20];
+    char email[50];
+};
+
+int main() {
+    int numStudents;
+    printf("Nhap so luong sinh vien: ");
+    scanf("%d", &numStudents);
+
+    struct Student students[numStudents];
+    for (int i = 0; i < numStudents; i++) 
+	{
+        printf("Nhap thong tin cho sinh vien %d:\n", i + 1);
+		fflush(stdin);
+        printf("Ho va ten: ");
+        gets(students[i].name); 
+		fflush(stdin);
+        printf("Tuoi: ");
+        scanf("%d", &students[i].age);
+		fflush(stdin);
+        printf("So dien thoai: ");
+        gets(students[i].phone);
+		fflush(stdin);
+        printf("Email: ");
+        gets(students[i].email);
+    }
+
+    FILE *fileptr = fopen("C:\\Users\\Admin\\Desktop\\students.txt", "w");
+    if(fileptr != NULL) 
+	{
+		for (int i = 0; i < numStudents; i++) 
+		{
+		    fprintf(fileptr, "Ho ten: %s\n", students[i].name);
+		    fprintf(fileptr, "Tuoi: %d\n", students[i].age);
+		    fprintf(fileptr, "So dien thoai: %s\n", students[i].phone);
+		    fprintf(fileptr, "Email: %s\n", students[i].email);
+		    fprintf(fileptr, "\n");
+		}
+    }
+    fclose(fileptr);
+
+    return 0;
+}
